@@ -14,15 +14,16 @@ import com.iruda.numnum.databinding.FragmentGameBinding
 import com.iruda.numnum.domain.entities.GameResult
 import com.iruda.numnum.domain.entities.Level
 import com.iruda.numnum.presentation.viewmodels.GameViewModel
+import com.iruda.numnum.presentation.viewmodels.GameViewModelFactory
 
 class GameFragment : Fragment() {
 
     private lateinit var level: Level
+    private val viewModelFactory by lazy {
+        GameViewModelFactory(level, requireActivity().application)
+    }
     private val viewModel: GameViewModel by lazy {
-        ViewModelProvider(
-            this,
-            ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)
-        )[GameViewModel::class.java]
+        ViewModelProvider(this, viewModelFactory)[GameViewModel::class.java]
     }
 
     private val tvOptions by lazy {
@@ -58,7 +59,6 @@ class GameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         observeViewModel()
         setClickListenersToOptions()
-        viewModel.startGame(level)
     }
 
     private fun setClickListenersToOptions() {

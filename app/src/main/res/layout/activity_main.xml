@@ -4,6 +4,7 @@
     android:id="@+id/main_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:name="com.iruda.numnum.presentation.views.WelcomeFragment"
     tools:context=".presentation.MainActivity">
 
 </androidx.fragment.app.FragmentContainerView>

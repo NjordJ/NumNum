@@ -43,7 +43,6 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     val progressAnswers: LiveData<String>
         get() = _progressAnswers
 
-
     private val _enoughCountOfRightAnswers = MutableLiveData<Boolean>()
     val enoughCountOfRightAnswers: LiveData<Boolean>
         get() = _enoughCountOfRightAnswers
@@ -73,12 +72,14 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         getGameSettings(level)
         startTime()
         generateQuestion()
+        updateProgress()
     }
 
     fun chooseAnswer(number: Int) {
         checkAnswer(number)
         updateProgress()
         generateQuestion()
+        updateProgress()
     }
 
     private fun updateProgress() {
@@ -95,6 +96,9 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private fun calculatePercentOfRightAnswers(): Int {
+        if (countOfQuestions == 0) {
+            return 0
+        }
         return ((countOfRightAnswers / countOfQuestions.toDouble()) * 100).toInt()
     }
 

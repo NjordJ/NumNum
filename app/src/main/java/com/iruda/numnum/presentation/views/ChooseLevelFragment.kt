@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.iruda.numnum.R
 import com.iruda.numnum.databinding.FragmentChooseLevelBinding
 import com.iruda.numnum.domain.entities.Level
 
@@ -37,23 +36,15 @@ class ChooseLevelFragment : Fragment() {
     }
 
     private fun launchLevel(level: Level) {
-        val args = Bundle().apply {
-            putParcelable(GameFragment.KEY_LEVEL, level)
-        }
-        findNavController().navigate(R.id.action_chooseLevelFragment_to_gameFragment, args)
+        findNavController().navigate(
+            ChooseLevelFragmentDirections.actionChooseLevelFragmentToGameFragment(
+                level
+            )
+        )
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    companion object {
-
-        const val STACK_NAME = "ChooseLevelFragment"
-
-        fun newInstance(): ChooseLevelFragment {
-            return ChooseLevelFragment()
-        }
     }
 }

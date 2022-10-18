@@ -35,7 +35,11 @@
         android:id="@+id/gameFinishedFragment"
         android:name="com.iruda.numnum.presentation.views.GameFinishedFragment"
         android:label="fragment_game_finished"
-        tools:layout="@layout/fragment_game_finished" />
+        tools:layout="@layout/fragment_game_finished" >
+        <argument
+            android:name="gameResult"
+            app:argType="com.iruda.numnum.domain.entities.GameResult" />
+    </fragment>
     <fragment
         android:id="@+id/gameFragment"
         android:name="com.iruda.numnum.presentation.views.GameFragment"
@@ -50,5 +54,8 @@
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/gameFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="level"
+            app:argType="com.iruda.numnum.domain.entities.Level" />
     </fragment>
 </navigation>

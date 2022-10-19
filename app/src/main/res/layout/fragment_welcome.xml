@@ -1,55 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    tools:context=".presentation.views.WelcomeFragment">
+<layout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:context=".presentation.views.Welcome.Fragment">
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:context=".presentation.views.WelcomeFragment">
 
-        <ImageView
-            android:id="@+id/image_view_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:layout_margin="32dp"
-            android:contentDescription="@string/welcome_logo"
-            android:src="@drawable/ic_brain"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/text_view_title"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="@string/welcome_title"
-            android:textSize="24sp"
-            app:layout_constraintTop_toBottomOf="@id/image_view_logo" />
+            android:orientation="vertical"
+            tools:context=".presentation.views.Welcome.Fragment">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="@string/game_rules"
-            android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/text_view_title" />
+            <ImageView
+                android:id="@+id/image_view_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_margin="32dp"
+                android:contentDescription="@string/welcome_logo"
+                android:src="@drawable/ic_brain"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/button_understand"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/button_understand"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            <TextView
+                android:id="@+id/text_view_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="@string/welcome_title"
+                android:textSize="24sp"
+                app:layout_constraintTop_toBottomOf="@id/image_view_logo" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="@string/game_rules"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/text_view_title" />
 
-</ScrollView>
+            <Button
+                android:id="@+id/button_understand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/button_understand"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

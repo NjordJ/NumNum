@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.iruda.numnum.R
 import com.iruda.numnum.databinding.FragmentGameFinishedBinding
 
 class GameFinishedFragment : Fragment() {
@@ -30,50 +29,12 @@ class GameFinishedFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupClickListeners()
-        bindViews()
+        binding.gameResult = args.gameResult
     }
 
     private fun setupClickListeners() {
         binding.buttonRetry.setOnClickListener {
             retryGame()
-        }
-    }
-
-    private fun bindViews() {
-        binding.apply {
-            emojiResult.setImageResource(getSmileResId())
-            textViewRequiredAnswers.text = String.format(
-                getString(R.string.required_score),
-                args.gameResult.gameSettings.minCountOfRightAnswers
-            )
-            textViewScoreAnswers.text = String.format(
-                getString(R.string.score_answers),
-                args.gameResult.countOfRightAnswers
-            )
-            textViewRequiredPercentage.text = String.format(
-                getString(R.string.required_percentage),
-                args.gameResult.gameSettings.minPercentOfRightAnswers
-            )
-            textViewScorePercentage.text = String.format(
-                getString(R.string.score_percentage),
-                getPercentOfRightAnswers()
-            )
-        }
-    }
-
-    private fun getSmileResId(): Int {
-        return if (args.gameResult.isWin) {
-            R.drawable.ic_smile
-        } else {
-            R.drawable.ic_sad
-        }
-    }
-
-    private fun getPercentOfRightAnswers() = with(args.gameResult) {
-        if (countOfQuestions == 0) {
-            0
-        } else {
-            ((countOfRightAnswers / countOfQuestions.toDouble()) * 100).toInt()
         }
     }
 
